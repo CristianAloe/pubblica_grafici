@@ -1,5 +1,6 @@
 import pandas as pd
 import dash
+import os
 from dash import dcc, html
 import plotly.express as px
 
@@ -50,5 +51,9 @@ def update_bar_chart(_):
 
 
 # Avvia l'app
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 8050))  # Usa la porta di Render oppure 8050 di default
+    app.run(host='0.0.0.0', port=port, debug=True)
+
